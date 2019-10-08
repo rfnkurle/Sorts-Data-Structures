@@ -88,9 +88,24 @@
 
 
 
+class Human{
+    constructor(firstName,lastName,age){
+     this.firstName =  firstName
+    this.lastName = lastName
+    this.age = age;
+
+}
+fullName(){
+    return `My full name is ${this.firstName} ${this.lastName}`
+}
+}
+
+ var rob = new Human("Robby", "Kurle", 34)
+
+
 
 
 
 
 //add algorithm/function and arguments
-document.getElementById("example").innerHTML = mergeSort([2, 5, 1, 7, 3, 9])
+document.getElementById("example").innerHTML = rob.firstName
