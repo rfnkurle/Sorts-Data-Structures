@@ -108,4 +108,4 @@ fullName(){
 
 
 //add algorithm/function and arguments
-document.getElementById("example").innerHTML = rob.firstName
+document.getElementById("example").innerHTML = rob.firstName()
