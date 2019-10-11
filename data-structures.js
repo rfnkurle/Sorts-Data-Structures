@@ -75,16 +75,16 @@ unshift(val){
     return this;
 }
 
-get(index){
-        if(index < 0 || index >= this.length) return null;
-        var counter = 0;
-        var current = this.head;
-        while(counter !== index){
-            current = current.next;
-            counter++;
-        }
-        return current;
+get(index){//takes in an index
+    if(index < 0 || index >= this.length) return null; //if index doesn't exist in list
+    var counter = 0; //needed to traverse to desired index
+    var current = this.head; //what we want to return
+    while(counter !== index){ //while counter is not == to the index we want...
+        current = current.next; //...move down one at a time until it is
+        counter++; //must equal index
     }
+    return current;
+}
 
     
 
