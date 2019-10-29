@@ -44,5 +44,36 @@ class DoublyLinkedList {
         return poppedNode;
     }
 
+    shift(){
+        if(this.length === 0) return undefined;
+        var oldHead = this.head;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }
+        this.head = oldHead.next; //sets head to next on list
+        this.head.prev = null; //severs connection from new head pointing leftward to old head
+        oldHead.next = null; //sever connection from oldHead rightward to current new head
+        this.length--;
+        return oldHead;
+    }
+
+    unshift(val){
+        var newNode = newNode(val);
+        if (this.length === 0){ //edge case where list is empty, newNode becomes head and tail
+            this.head = newNode;
+            this.tail = newNode;
+        } else{
+
+            this.head.prev = newNode; //places newNode in front of current head
+            newNode.next = this.head;//asserts that this.head is newNode.next
+            this.head = newNode; //changes newNode to be new head
+        }
+        this.length++;
+        return this;
+
+
+    }
+
 
 }
