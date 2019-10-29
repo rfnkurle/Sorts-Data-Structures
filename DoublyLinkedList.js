@@ -71,6 +71,8 @@ class DoublyLinkedList {
         }
         this.length++;
         return this;
+
+    }
         get(index){
             if(index < 0 || index >= this.length) return null;
             if(index <= this.length/2){
@@ -102,7 +104,7 @@ class DoublyLinkedList {
             }
         }
 
-
+    
     }
     insert(index, val){
         if(index < 0 || index > this.length) return false; //if doesnt exist on list return false
