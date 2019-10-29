@@ -104,6 +104,24 @@ class DoublyLinkedList {
 
 
     }
+    insert(index, val){
+        if(index < 0 || index > this.length) return false; //if doesnt exist on list return false
+        if(index === 0) return this.unshift(val); //if first index, unshift() value to front
+        if(index === this.length) return this.push(val); //if last index, push() to end
+        
+        var newNode = new Node(val); //sets newNode to value passed in 
+        var preNode = this.get(index-1) // to insert need to find item before where you want to put it 
+        var postNode = preNode.next //node to be after where newNode will be
+
+        //connects all pre and posts with newNode
+        preNode.next = newNode; //creates a newNode after preNode, points preNode to newNode
+        newNode.prev = preNode;//points newNode back to preNode for double link
+        newNode.next = postNode;//points newNode to postNode after it
+        postNode.previous = newNode;//point postNode back toward newNode
+        this.length++;
+        return true;
+    }
+
 
 
 }
