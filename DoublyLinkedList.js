@@ -106,6 +106,7 @@ class DoublyLinkedList {
 
     
     }
+
     insert(index, val){
         if(index < 0 || index > this.length) return false; //if doesnt exist on list return false
         if(index === 0) return this.unshift(val); //if first index, unshift() value to front
@@ -122,6 +123,22 @@ class DoublyLinkedList {
         postNode.previous = newNode;//point postNode back toward newNode
         this.length++;
         return true;
+    }
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length -1) return this.pop();
+
+        var removedNode = this.get(index);
+       var preNode = removedNode.prev;
+       var postNode = removedNode.next;
+       preNode.next = postNode;
+       postNode.prev = beforeNode;
+        removedNode.next = null;
+        removedNode.prev = null;
+        this.length--;
+        return removedNode;
+
     }
 
 
